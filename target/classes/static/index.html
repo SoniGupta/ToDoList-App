@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+   <head>
+   	<link rel="stylesheet" href="css/bootstrap.min.css">
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+      <!-- Latest compiled and minified JavaScript -->
+      <script src="js/bootstrap.min.js"></script>
+   	<script src="js/angular.min.js"></script>
+      <script src="js/angular-route.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="todo.css">
+
+
+      <script src="app.js"></script>
+
+      <script src="controller.js"></script>
+
+
+
+   </head>
+ <body>
+
+    <div class="todo-wrapper"  ng-app="myApp" ng-controller="TodoCtrl">
+      <h2>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+      <ul>
+        <li ng-repeat="i in todos">
+          <input type="checkbox"  ng-click="clickCheckbox(i)" ng-model="i.done"/>
+          <span class="done-{{i.done}}">{{i.text}}</span>
+        </li>
+      </ul>
+      <form>
+        <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" />
+        <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button>
+      </form>
+
+      <button class="clear-btn" ng-click="clear()">Clear completed</button>
+    </div>
+  </body>
+
+</html>

@@ -1,5 +1,5 @@
 myApp.controller('TodoCtrl', function ($scope, $http) {
-    var url = 'http://localhost:8080/all';
+    var url = '/all';
 
     $http.get(url).success(function (response) {
         $scope.todos = response;
@@ -12,7 +12,7 @@ myApp.controller('TodoCtrl', function ($scope, $http) {
 
     $scope.addTodo = function () {
         $http({
-            url: "http://localhost:8080/add",
+            url: "/add",
             method: "GET",
             params: {text: $scope.formTodoText, done: false}
         }).then(
@@ -29,7 +29,7 @@ myApp.controller('TodoCtrl', function ($scope, $http) {
 
     };
     $scope.clear = function () {
-        $http.get("http://localhost:8080/delete").success(function (response) {
+        $http.get("/delete").success(function (response) {
             $http.get(url).success(function (response) {
                 $scope.todos = response;
             });
@@ -37,7 +37,7 @@ myApp.controller('TodoCtrl', function ($scope, $http) {
     }
     $scope.clickCheckbox=function(i){
         $http({
-            url: "http://localhost:8080/update",
+            url: "/update",
             method: "GET",
             params: {done: i.done,id: i.id  }
         }).then(

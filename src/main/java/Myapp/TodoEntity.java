@@ -25,10 +25,6 @@ public class TodoEntity {
 
 
 
-    public TodoEntity(Integer id){
-        this.id=id;
-
-    }
 
     public TodoEntity(String text, boolean done) {
       this.text=text;

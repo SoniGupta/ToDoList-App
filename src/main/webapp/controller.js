@@ -5,7 +5,8 @@ myApp.controller('TodoCtrl', function ($scope, $http) {
         $scope.todos = response;
     });
 
-    $scope.getTotalTodos = function () {
+    $scope
+        .getTotalTodos = function () {
         return $scope.todos.length;
     };
 

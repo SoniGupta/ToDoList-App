@@ -5,10 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 import java.util.List;
 
 @Controller
 public class TestController {
+
+    @Autowired
+    private TodoDao todoDao;
 
     @RequestMapping(value = "/all", produces = {"application/json"})
     @ResponseBody
@@ -20,10 +24,11 @@ public class TestController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public void create( String text,boolean done) {
-        TodoEntity t = new TodoEntity(text,done);
+    public void create(String text, boolean done) {
+        TodoEntity t = new TodoEntity(text, done);
         todoDao.save(t);
     }
+
     @RequestMapping("/delete")
     @ResponseBody
     public void deletedone() {
@@ -31,13 +36,13 @@ public class TestController {
         todoDao.deletedone();
 
     }
-@RequestMapping("/update")
-@ResponseBody
-public void check(boolean done,Integer id){
-    todoDao.updatelist(done,id);
 
-}
+    @RequestMapping("/update")
+    @ResponseBody
+    public void check(boolean done, Integer id) {
+        todoDao.updatelist(done, id);
 
-    @Autowired
-    private TodoDao todoDao ;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-@import "compass/css3";
+
 
 body {
   background: #13756D;
@@ -70,7 +70,7 @@ li input[type="checkbox"] {
   border: none;
   background: #29F4E3;
   padding: 0;
-  height: 100px;
+  height: 100px;}
   h2 {
    background: #29F4E3;
    padding: 0;
@@ -78,7 +78,7 @@ li input[type="checkbox"] {
    font-family: megrim, fantasy;
    color: #333;
   }
-}
+
 
 .clear-btn {
   width: 100%;
